@@ -2,11 +2,384 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Redirect to full site</title>
-  <meta http-equiv="refresh" content="0; url=https://github.com/lucasabu1988/long-weekend-trip-amigos/blob/main/README.md">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Los 9 · Fin de Semana Largo | Planificador</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#f0f9ff', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 900: '#0c4a6e' },
+            sand: '#f59e0b'
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .card { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgb(0 0 0 / 0.15); }
+    .chip.selected { background: #0ea5e9; color: white; border-color: #0ea5e9; }
+    .rank.selected { background: #f59e0b; color: white; border-color: #f59e0b; }
+  </style>
 </head>
-<body>
-  <p>El sitio completo está en el archivo del repo. Descarga index.html completo desde los artifacts o contacta a Lucas.</p>
-  <p>Sheet de votos: https://docs.google.com/spreadsheets/d/1jnUf6ymPtCk7IKeilkYBICsOtIMFPjGXFfpA_VzeHE4/edit</p>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- Top bar -->
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2 font-bold text-lg">
+        <span class="text-2xl">🏝️</span> Los 9
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#votar" class="text-sm font-medium text-slate-600 hover:text-brand-600">Votar</a>
+        <a href="https://docs.google.com/spreadsheets/d/1jnUf6ymPtCk7IKeilkYBICsOtIMFPjGXFfpA_VzeHE4/edit" target="_blank" class="text-sm font-medium text-slate-600 hover:text-brand-600">Sheet oficial</a>
+        <a href="#votar" class="bg-brand-600 text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-brand-700 transition">Votar ahora</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-br from-brand-700 via-brand-600 to-sand text-white">
+    <div class="max-w-5xl mx-auto px-4 py-16 md:py-20 text-center">
+      <p class="text-brand-100 text-sm font-medium tracking-wide uppercase mb-3">Long weekend · 9 personas · Lima</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Elijamos juntos el destino</h1>
+      <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8">
+        Tres opciones reales. Tú marcas qué quieres hacer. Todos votamos. 
+        El consenso gana. Después armamos las reservas.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="#opciones" class="bg-white text-brand-700 font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition">Ver opciones</a>
+        <a href="#votar" class="bg-black/20 backdrop-blur text-white font-bold px-6 py-3 rounded-full border border-white/30 hover:bg-black/30 transition">Ir a votar →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hard truth from the comments -->
+  <section class="max-w-5xl mx-auto px-4 -mt-6 relative z-10">
+    <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-5 md:p-6 flex gap-4 items-start">
+      <div class="text-2xl">⚡</div>
+      <div>
+        <p class="font-semibold text-slate-900">La parte difícil no es el sitio</p>
+        <p class="text-sm text-slate-600 mt-1">Es que 9 personas se pongan de acuerdo. Por eso el Sheet + este ranking es lo importante. Voten con honestidad y en 48h tenemos destino.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Options -->
+  <section id="opciones" class="max-w-5xl mx-auto px-4 py-14">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-center mb-2">Las 3 opciones</h2>
+    <p class="text-center text-slate-500 mb-10 text-sm">Elegidas por cercanía, logística de grupo de 9 y mix de actividades</p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- 1 Paracas -->
+      <article class="card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+        <div class="h-44 bg-gradient-to-br from-sky-400 to-amber-300 relative flex items-end p-4">
+          <span class="absolute top-3 left-3 bg-white text-amber-700 text-xs font-bold px-2.5 py-1 rounded-full">#1 Recomendada</span>
+          <div class="text-white">
+            <h3 class="font-bold text-lg drop-shadow">Paracas + Huacachina</h3>
+            <p class="text-sm text-white/90">3.5–4 h · Ica</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-sm text-slate-600 mb-4 leading-relaxed">Ballestas + reserva + buggy + sandboard + pisco + nightlife. El equilibrio perfecto para un grupo.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="text-xs bg-sky-50 text-sky-700 px-2 py-0.5 rounded-full">Aventura</span>
+            <span class="text-xs bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full">Desierto</span>
+            <span class="text-xs bg-purple-50 text-purple-700 px-2 py-0.5 rounded-full">Fiesta</span>
+          </div>
+          <div class="text-sm space-y-1.5 mb-5 border-t pt-3">
+            <div class="flex justify-between"><span class="text-slate-500">Costo est.</span><span class="font-semibold">S/450–700</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Energía</span><span class="font-semibold">Alta</span></div>
+          </div>
+          <button onclick="openModal('paracas')" class="w-full bg-slate-900 text-white text-sm font-semibold py-2.5 rounded-xl hover:bg-slate-800 transition">Ver itinerario + actividades</button>
+        </div>
+      </article>
+
+      <!-- 2 Lunahuaná -->
+      <article class="card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+        <div class="h-44 bg-gradient-to-br from-emerald-400 to-lime-400 relative flex items-end p-4">
+          <div class="text-white">
+            <h3 class="font-bold text-lg drop-shadow">Lunahuaná</h3>
+            <p class="text-sm text-white/90">2–2.5 h · Cañete</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-sm text-slate-600 mb-4 leading-relaxed">Rafting, canopy, cuatrimotos, bodegas de pisco y comida criolla. Más cerca, más acción.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full">Rafting</span>
+            <span class="text-xs bg-lime-50 text-lime-700 px-2 py-0.5 rounded-full">Canopy</span>
+            <span class="text-xs bg-rose-50 text-rose-700 px-2 py-0.5 rounded-full">Gastronomía</span>
+          </div>
+          <div class="text-sm space-y-1.5 mb-5 border-t pt-3">
+            <div class="flex justify-between"><span class="text-slate-500">Costo est.</span><span class="font-semibold">S/280–480</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Energía</span><span class="font-semibold">Muy alta</span></div>
+          </div>
+          <button onclick="openModal('lunahuana')" class="w-full bg-slate-900 text-white text-sm font-semibold py-2.5 rounded-xl hover:bg-slate-800 transition">Ver itinerario + actividades</button>
+        </div>
+      </article>
+
+      <!-- 3 Mancora -->
+      <article class="card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+        <div class="h-44 bg-gradient-to-br from-cyan-400 to-blue-500 relative flex items-end p-4">
+          <div class="text-white">
+            <h3 class="font-bold text-lg drop-shadow">Máncora / Punta Sal</h3>
+            <p class="text-sm text-white/90">Vuelo + transfer</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-sm text-slate-600 mb-4 leading-relaxed">Playa, surf, ceviche y fiesta. La opción más “vacaciones de verdad”, aunque más cara y lejos.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="text-xs bg-cyan-50 text-cyan-700 px-2 py-0.5 rounded-full">Playa</span>
+            <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full">Surf</span>
+            <span class="text-xs bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full">Fiesta</span>
+          </div>
+          <div class="text-sm space-y-1.5 mb-5 border-t pt-3">
+            <div class="flex justify-between"><span class="text-slate-500">Costo est.</span><span class="font-semibold">S/650–1.100</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Energía</span><span class="font-semibold">Media</span></div>
+          </div>
+          <button onclick="openModal('mancora')" class="w-full bg-slate-900 text-white text-sm font-semibold py-2.5 rounded-xl hover:bg-slate-800 transition">Ver itinerario + actividades</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl">
+      <div class="sticky top-0 bg-white border-b px-5 py-4 flex justify-between items-center rounded-t-2xl">
+        <h3 id="modal-title" class="font-bold text-lg"></h3>
+        <button onclick="closeModal()" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500">✕</button>
+      </div>
+      <div id="modal-body" class="p-5 space-y-5 text-sm"></div>
+    </div>
+  </div>
+
+  <!-- Voting -->
+  <section id="votar" class="bg-slate-100 py-14">
+    <div class="max-w-xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-center mb-2">Tu voto</h2>
+      <p class="text-center text-slate-500 text-sm mb-8">Toma 90 segundos. Luego pega el resumen en el grupo o llena el Sheet.</p>
+
+      <div class="bg-white rounded-2xl shadow-lg p-6 space-y-6">
+        <div>
+          <label class="block text-sm font-semibold mb-1.5">Tu nombre</label>
+          <input id="name" type="text" placeholder="Ej. Lucas" class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-brand-500 outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-3">Ranking (1 = favorito)</label>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between bg-slate-50 rounded-xl px-3 py-2.5">
+              <span class="text-sm font-medium">🏜️ Paracas + Huacachina</span>
+              <div class="flex gap-1.5">
+                <button data-dest="paracas" data-r="1" class="rank w-9 h-9 rounded-lg border-2 border-slate-200 font-bold text-sm hover:border-sand">1</button>
+                <button data-dest="paracas" data-r="2" class="rank w-9 h-9 rounded-lg border-2 border-slate-200 font-bold text-sm hover:border-sand">2</button>
+                <button data-dest="paracas" data-r="3" class="rank w-9 h-9 rounded-lg border-2 border-slate-200 font-bold text-sm hover:border-sand">3</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between bg-slate-50 rounded-xl px-3 py-2.5">
+              <span class="text-sm font-medium">🚣 Lunahuaná</span>
+              <div class="flex gap-1.5">
+                <button data-dest="lunahuana" data-r="1" class="rank w-9 h-9 rounded-lg border-2 border-slate-200 font-bold text-sm hover:border-sand">1</button>
+                <button data-dest="lunahuana" data-r="2" class="rank w-9 h-9 rounded-lg border-2 border-slate-200 font-bold text-sm hover:border-sand">2</button>
+                <button data-dest="lunahuana" data-r="3" class="rank w-9 h-9 rounded-lg border-2 border-slate-200 font-bold text-sm hover:border-sand">3</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between bg-slate-50 rounded-xl px-3 py-2.5">
+              <span class="text-sm font-medium">🏄 Máncora</span>
+              <div class="flex gap-1.5">
+                <button data-dest="mancora" data-r="1" class="rank w-9 h-9 rounded-lg border-2 border-slate-200 font-bold text-sm hover:border-sand">1</button>
+                <button data-dest="mancora" data-r="2" class="rank w-9 h-9 rounded-lg border-2 border-slate-200 font-bold text-sm hover:border-sand">2</button>
+                <button data-dest="mancora" data-r="3" class="rank w-9 h-9 rounded-lg border-2 border-slate-200 font-bold text-sm hover:border-sand">3</button>
+              </div>
+            </div>
+          </div>
+          <p id="rank-err" class="text-red-500 text-xs mt-2 hidden">Elige 1, 2 y 3 distintos.</p>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-2">Actividades que te interesan</label>
+          <div id="acts" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-1.5">Presupuesto cómodo (pp)</label>
+          <select id="budget" class="w-full border border-slate-200 rounded-xl px-4 py-2.5 outline-none">
+            <option value="">Selecciona...</option>
+            <option value="<400">< S/400</option>
+            <option value="400-600">S/400–600</option>
+            <option value="600-900">S/600–900</option>
+            <option value=">900">> S/900</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-1.5">Comentarios</label>
+          <textarea id="comments" rows="2" placeholder="Ej. No madrugar mucho, me gusta el sandboard, presupuesto max..." class="w-full border border-slate-200 rounded-xl px-4 py-2.5 outline-none"></textarea>
+        </div>
+
+        <button onclick="saveVote()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl transition flex items-center justify-center gap-2">
+          Guardar y copiar resumen
+        </button>
+
+        <div id="success" class="hidden bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center text-sm">
+          <p class="font-semibold text-emerald-800">✓ Guardado. Resumen copiado al portapapeles.</p>
+          <p class="text-emerald-700 mt-1">Pégalo en el WhatsApp del grupo o llena el Sheet oficial.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 text-center">
+        <a href="https://docs.google.com/spreadsheets/d/1jnUf6ymPtCk7IKeilkYBICsOtIMFPjGXFfpA_VzeHE4/edit" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline">
+          <i class="fas fa-table"></i> Abrir Sheet oficial del grupo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- After decision -->
+  <section class="max-w-5xl mx-auto px-4 py-14">
+    <h2 class="text-2xl font-extrabold text-center mb-8">Después del consenso</h2>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="bg-white rounded-2xl border p-5">
+        <div class="text-2xl mb-2">1</div>
+        <h3 class="font-bold mb-1">Destino decidido</h3>
+        <p class="text-sm text-slate-600">Lucas confirma fecha exacta y arma el grupo de WhatsApp de logística.</p>
+      </div>
+      <div class="bg-white rounded-2xl border p-5">
+        <div class="text-2xl mb-2">2</div>
+        <h3 class="font-bold mb-1">Reservas</h3>
+        <p class="text-sm text-slate-600">Transporte (van o buses), alojamiento para 9 y tours principales. Se verifica disponibilidad real en el momento.</p>
+      </div>
+      <div class="bg-white rounded-2xl border p-5">
+        <div class="text-2xl mb-2">3</div>
+        <h3 class="font-bold mb-1">Pago grupal</h3>
+        <p class="text-sm text-slate-600">Link de pago o transferencia. Cada uno confirma su lugar.</p>
+      </div>
+    </div>
+    <p class="text-center text-xs text-slate-400 mt-6">Nota: precios y disponibilidad cambian. Las reservas finales se confirman con operadores reales (no solo con IA).</p>
+  </section>
+
+  <footer class="border-t py-8 text-center text-sm text-slate-400">
+    <p>Los 9 · Julio 2026</p>
+    <p class="mt-1"><a href="https://github.com/lucasabu1988/long-weekend-trip-amigos" class="underline hover:text-slate-600">Repo</a> · Sheet oficial arriba</p>
+  </footer>
+
+  <script>
+    const data = {
+      paracas: {
+        title: "🏜️ Paracas + Huacachina",
+        days: [
+          { d: "Día 1", t: "Lima → Paracas + Ballestas", i: ["Salida 6:30-7:30", "Tour Islas Ballestas", "Almuerzo en Paracas", "Reserva Nacional", "Noche Paracas o Huacachina"] },
+          { d: "Día 2", t: "Huacachina full", i: ["Mañana libre / piscina", "Buggy + sandboarding (atardecer)", "Pisco tasting", "Noche en el oasis"] },
+          { d: "Día 3", t: "Regreso", i: ["Desayuno largo", "Actividad opcional", "Regreso a Lima"] }
+        ],
+        acts: ["Islas Ballestas", "Reserva Paracas", "Dune buggy", "Sandboarding", "Pisco / bodega", "Atardecer dunas", "Nightlife", "Playa / piscina"]
+      },
+      lunahuana: {
+        title: "🚣 Lunahuaná",
+        days: [
+          { d: "Día 1", t: "Llegada + rafting", i: ["Salida ~8h", "Check-in", "Rafting Cañete", "Almuerzo criollo", "Canopy o ATV"] },
+          { d: "Día 2", t: "Aventura + bodegas", i: ["Más deportes o relax", "Bodegas de pisco/vino", "Piscinas naturales", "Cena grupal"] },
+          { d: "Día 3", t: "Cierre", i: ["Mañana suave", "Almuerzo", "Regreso"] }
+        ],
+        acts: ["Rafting", "Canopy / zipline", "Cuatrimotos", "Bodegas pisco", "Piscinas naturales", "Senderismo", "Comida criolla", "Fogata"]
+      },
+      mancora: {
+        title: "🏄 Máncora",
+        days: [
+          { d: "Día 1", t: "Vuelo + playa", i: ["Vuelo mañana", "Transfer", "Ceviche + playa", "Atardecer", "Noche fiesta"] },
+          { d: "Día 2", t: "Full beach", i: ["Surf o bodyboard", "Playa todo el día", "Mariscos", "Más playa o siesta", "Fiesta"] },
+          { d: "Día 3", t: "Último baño", i: ["Playa mañana", "Almuerzo", "Transfer + vuelo"] }
+        ],
+        acts: ["Playa & sol", "Clases de surf", "Ceviche", "Nightlife", "Kayak / snorkel", "Atardecer", "Cuatrimoto", "Relax total"]
+      }
+    };
+
+    let ranks = {};
+    let selected = new Set();
+
+    // Activities
+    const allActs = [...new Set([].concat(...Object.values(data).map(d => d.acts)))];
+    document.getElementById('acts').innerHTML = allActs.map(a => 
+      `<button type="button" class="chip border border-slate-200 rounded-full px-3 py-1 text-xs hover:border-brand-500" data-a="${a}">${a}</button>`
+    ).join('');
+
+    document.querySelectorAll('.chip').forEach(btn => {
+      btn.onclick = () => {
+        const a = btn.dataset.a;
+        if (selected.has(a)) { selected.delete(a); btn.classList.remove('selected'); }
+        else { selected.add(a); btn.classList.add('selected'); }
+      };
+    });
+
+    // Ranking
+    document.querySelectorAll('.rank').forEach(btn => {
+      btn.onclick = () => {
+        const dest = btn.dataset.dest;
+        const r = +btn.dataset.r;
+        // clear same rank elsewhere
+        Object.keys(ranks).forEach(k => { if (ranks[k] === r && k !== dest) ranks[k] = null; });
+        ranks[dest] = r;
+        // visual
+        document.querySelectorAll(`.rank[data-dest="${dest}"]`).forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        // clear other buttons that had this rank
+        document.querySelectorAll('.rank').forEach(b => {
+          if (b.dataset.dest !== dest && +b.dataset.r === r) b.classList.remove('selected');
+        });
+        document.getElementById('rank-err').classList.add('hidden');
+      };
+    });
+
+    function openModal(key) {
+      const d = data[key];
+      document.getElementById('modal-title').textContent = d.title;
+      let html = '';
+      d.days.forEach(day => {
+        html += `<div><h4 class="font-semibold text-brand-600 mb-1">${day.d}: ${day.t}</h4><ul class="list-disc list-inside text-slate-600 space-y-0.5">${day.i.map(x => `<li>${x}</li>`).join('')}</ul></div>`;
+      });
+      html += `<div class="pt-2"><h4 class="font-semibold mb-2">Actividades</h4><div class="flex flex-wrap gap-1.5">${d.acts.map(a => `<span class="bg-slate-100 text-xs px-2 py-1 rounded-full">${a}</span>`).join('')}</div></div>`;
+      document.getElementById('modal-body').innerHTML = html;
+      document.getElementById('modal').classList.remove('hidden');
+      document.getElementById('modal').classList.add('flex');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+      document.getElementById('modal').classList.remove('flex');
+    }
+    document.getElementById('modal').onclick = e => { if (e.target.id === 'modal') closeModal(); };
+
+    function saveVote() {
+      const name = document.getElementById('name').value.trim();
+      if (!name) return alert('Pon tu nombre');
+      const vals = Object.values(ranks);
+      if (vals.length < 3 || vals.includes(null) || new Set(vals).size !== 3) {
+        document.getElementById('rank-err').classList.remove('hidden');
+        return;
+      }
+      const r1 = Object.entries(ranks).find(([k,v]) => v === 1)?.[0] || '';
+      const r2 = Object.entries(ranks).find(([k,v]) => v === 2)?.[0] || '';
+      const r3 = Object.entries(ranks).find(([k,v]) => v === 3)?.[0] || '';
+      const budget = document.getElementById('budget').value || 'No indicado';
+      const comments = document.getElementById('comments').value.trim() || '—';
+      const acts = [...selected].join(', ') || 'Ninguna';
+
+      const text = `🗳️ *Voto de ${name}*
+1º ${r1} | 2º ${r2} | 3º ${r3}
+Actividades: ${acts}
+Presupuesto: ${budget}
+Comentarios: ${comments}`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        document.getElementById('success').classList.remove('hidden');
+      });
+    }
+  </script>
 </body>
 </html>
